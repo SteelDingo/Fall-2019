@@ -27,7 +27,14 @@ def add_order(number, item, cust_dict, cust_name): # not done yet, check if cust
 ##        order_dict[number].append(item)
     return order_dict
 
-
+def yn_option(yn):                                      # placeholder for now
+    if yn=="y":
+        pass
+    elif yn=="n":
+        pass
+    else:
+        yn=str.lower(input("Please choose y or n.\n"))
+    return
 
 
 cust_dict={}
@@ -36,8 +43,8 @@ item_list=[]
 
 print("Hello. Welcome to the shop.")
 print("Inventory:\nSword: $10\nShield: $8\nArmor: $15\nPotion: $5")
-item = str.lower(input("What would you like?\n"))
-check=1
+item = str.lower(input("What would you like?\n"))                   # this is the line I think could be used as a class
+check=1                                                             # would make life easier if I could just call it when I need it
 while check:
     
     flag = 1
@@ -47,7 +54,8 @@ while check:
             number = random.randint(10000, 99999)
 ##        elif number in order_dict:
 
-        else: flag = 0
+        else:
+            flag = 0
 # customer ID system
 
 #shop_inv={sword: 10, shield: 8, armor: 15, potion: 5}
@@ -61,6 +69,8 @@ while check:
         add_cust(cust_name, number)
         add_order(number, item, cust_dict, cust_name)
         print(cust_dict, order_dict)
+        yn=str.lower(input("Would you like anything else?\n"))
+        yn_option(yn)
         check=0
     elif item=="shield":
         cust_name=str.upper(input("A shield? Alright, can I get your name?\n"))
